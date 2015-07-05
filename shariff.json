@@ -1,17 +1,14 @@
 {
 	"cache": {
-		"ttl": 60
+		"ttl": 300
 	},
 	"domain": "www.heise.de",
 	"services": [
 		"GooglePlus",
 		"Twitter",
 		"Facebook",
+		"Facebooklike",
 		"LinkedIn",
-		"Reddit",
-		"StumbleUpon",
-		"Flattr",
-		"Pinterest",
 		"Xing"
 	]
 }
