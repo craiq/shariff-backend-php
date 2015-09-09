@@ -57,7 +57,7 @@ By default Shariff uses the Filesystem cache. By specifying a different adapter 
 
 ##### Client options
 
-The backend uses [Guzzle](http://docs.guzzlephp.org/en/latest/) as HTTP client. Guzzle has many options that you can set, e.g. timeout and connect_timeout. See http://docs.guzzlephp.org/en/latest/clients.html#request-options for a detailed list.
+The backend uses [Guzzle](http://docs.guzzlephp.org/en/latest/) as HTTP client. Guzzle has many options that you can set, e.g. timeout and connect_timeout. See http://docs.guzzlephp.org/en/latest/request-options.html for a detailed list.
 In order to set those options pass them in the json with the key "client".
 
 | Key         | Type | Description |
@@ -80,6 +80,42 @@ To use the graph api id method to fetch the share count you need to set up an ap
 |-------------|------|-------------|
 | `app_id` | `string` | the id of your facebook application |
 | `secret` | `string` | the client secret of your facebook application |
+
+##### Full config example
+
+```js
+{
+	"cacheClass": "Heise\\Shariff\\ZendCache",
+	"cache": {
+		"ttl": 60,
+		"cacheDir": "/tmp/shariff/cache",
+		"adapter": "Filesystem",
+		"adapterOptions": {
+			// ...
+		}
+	},
+	"client": {
+		"timeout": 4.2,
+		// ... (see "Client options")
+	},
+	"domain": "www.example.com",
+	"services": [
+		"GooglePlus",
+		"Twitter",
+		"Facebook",
+		"LinkedIn",
+		"Reddit",
+		"StumbleUpon",
+		"Flattr",
+		"Pinterest",
+		"Xing"
+	],
+	"Facebook": {
+		"app_id": "1234567890",
+		"secret": "terces"
+	}
+}
+```
 
 
 Testing your installation
