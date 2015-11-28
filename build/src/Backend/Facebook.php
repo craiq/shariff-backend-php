@@ -27,7 +27,7 @@ class Facebook extends Request implements ServiceInterface
         if (null !== $accessToken) {
             $query = 'https://graph.facebook.com/v2.2/?id=' . $url . '&' . $accessToken;
         } else {
-            $query = 'https://graph.facebook.com/fql?q=SELECT share_count FROM link_stat WHERE url="'.$url.'"';
+            $query = 'https://graph.facebook.com/fql?q=SELECT total_count FROM link_stat WHERE url="'.$url.'"';
         }
         return $this->createRequest($query);
     }
@@ -38,8 +38,8 @@ class Facebook extends Request implements ServiceInterface
      */
     public function extractCount(array $data)
     {
-        if (isset($data['data']) && isset($data['data'][0]) && isset($data['data'][0]['share_count'])) {
-            return $data['data'][0]['share_count'];
+        if (isset($data['data']) && isset($data['data'][0]) && isset($data['data'][0]['total_count'])) {
+            return $data['data'][0]['total_count'];
         }
         if (isset($data['share']) && isset($data['share']['share_count'])) {
             return $data['share']['share_count'];
