@@ -9,17 +9,21 @@ class Application
 {
     public static function run()
     {
-        header('Content-type: application/json');
 
         if (!isset($_GET["url"])) {
-            echo json_encode(null);
+            echo json_encode('no URL to check');
             return;
+        }
+        if(isset($_GET["callback"])) {
+            header('Content-type: application/javascript');
+        } else {
+            header('Content-type: application/json');
         }
 
         $reader = new Json();
 
         $shariff = new Backend($reader->fromFile('shariff.json'));
-        echo json_encode($shariff->get($_GET["url"]));
+        echo $_GET["callback"] ? $_GET["callback"].'(' . json_encode($shariff->get($_GET["url"])) . ');' : json_encode($shariff->get($_GET["url"]));
     }
 }
 
