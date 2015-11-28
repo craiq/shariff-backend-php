@@ -7,7 +7,7 @@ namespace Heise\Shariff\Backend;
  *
  * @package Heise\Shariff\Backend
  */
-class Facebook extends Request implements ServiceInterface
+class Facebooklike extends Request implements ServiceInterface
 {
     /**
      * @return string
