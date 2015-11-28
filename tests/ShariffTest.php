@@ -13,7 +13,6 @@ class ShariffTest extends \PHPUnit_Framework_TestCase
         "Pinterest",
         "Reddit",
         "StumbleUpon",
-        "Twitter",
         "Xing"
     );
 
@@ -47,23 +46,19 @@ class ShariffTest extends \PHPUnit_Framework_TestCase
         $this->assertInternalType('int', $counts['pinterest']);
         $this->assertGreaterThanOrEqual(0, $counts['pinterest']);
 
-        $this->assertArrayHasKey('reddit', $counts);
-        $this->assertInternalType('int', $counts['reddit']);
-        $this->assertGreaterThanOrEqual(0, $counts['reddit']);
-
         $this->assertArrayHasKey('stumbleupon', $counts);
         $this->assertInternalType('int', $counts['stumbleupon']);
         $this->assertGreaterThanOrEqual(0, $counts['stumbleupon']);
 
-        $this->assertArrayHasKey('twitter', $counts);
-        $this->assertInternalType('int', $counts['twitter']);
-        $this->assertGreaterThanOrEqual(0, $counts['twitter']);
-
-        // It seems Xing is blocking Travis from time to time - maybe caused by DOS protection
+        // It seems Xing and reddit are blocking Travis from time to time - maybe caused by DOS protection
         if (!getenv("TRAVIS")) {
             $this->assertArrayHasKey('xing', $counts);
             $this->assertInternalType('int', $counts['xing']);
             $this->assertGreaterThanOrEqual(0, $counts['xing']);
+
+            $this->assertArrayHasKey('reddit', $counts);
+            $this->assertInternalType('int', $counts['reddit']);
+            $this->assertGreaterThanOrEqual(0, $counts['reddit']);
         }
     }
 
@@ -113,6 +108,10 @@ class ShariffTest extends \PHPUnit_Framework_TestCase
 
     public function testClientOptions()
     {
+        $this->markTestSkipped(
+            "Some APIs are too fast for this. We need mock APIs."
+        );
+
         $shariff = new Backend(array(
             "domain"   => 'www.heise.de',
             "cache"    => array("ttl" => 1),

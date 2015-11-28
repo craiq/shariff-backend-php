@@ -3,11 +3,11 @@
 namespace Heise\Shariff\Backend;
 
 /**
- * Class Twitter
+ * Class AddThis
  *
  * @package Heise\Shariff\Backend
  */
-class Twitter extends Request implements ServiceInterface
+class AddThis extends Request implements ServiceInterface
 {
 
     /**
@@ -15,7 +15,7 @@ class Twitter extends Request implements ServiceInterface
      */
     public function getName()
     {
-        return 'twitter';
+        return 'addthis';
     }
 
     /**
@@ -24,7 +24,8 @@ class Twitter extends Request implements ServiceInterface
      */
     public function getRequest($url)
     {
-        return $this->createRequest('https://cdn.api.twitter.com/1/urls/count.json?url='.urlencode($url));
+        $url = 'http://api-public.addthis.com/url/shares.json?url='.urlencode($url);
+        return $this->createRequest($url);
     }
 
     /**
@@ -33,6 +34,6 @@ class Twitter extends Request implements ServiceInterface
      */
     public function extractCount(array $data)
     {
-        return $data['count'];
+        return $data['shares'];
     }
 }
