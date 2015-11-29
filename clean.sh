@@ -1,1 +1,0 @@
-php cleaner/bin/composer-cleaner -t
