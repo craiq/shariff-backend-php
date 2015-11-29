@@ -14,7 +14,7 @@ class Facebooklike extends Request implements ServiceInterface
      */
     public function getName()
     {
-        return 'facebook';
+        return 'facebooklike';
     }
 
     /**
