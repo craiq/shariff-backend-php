@@ -30,5 +30,13 @@
     },
     "autoload": {
         "psr-4": { "Heise\\Shariff\\": "src" }
+    },
+    "scripts": {
+        "post-install-cmd": [
+            "cleaner.sh"
+        ],
+        "post-update-cmd": [
+            "cleaner.sh"
+        ]
     }
 }
