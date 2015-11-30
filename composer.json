@@ -20,8 +20,8 @@
     ],
     "require": {
     	"php": ">=5.4.0",
-        "guzzlehttp/guzzle": "~5.2",
-        "zendframework/zend-cache": "*",
+        "guzzlehttp/guzzle": ">=5.2",
+        "zendframework/zend-cache": "2.4.9",
         "zendframework/zend-config": "*",
         "zendframework/zend-json": "*"
     },
