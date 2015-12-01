@@ -40,13 +40,5 @@
     },
     "autoload-dev": {
         "psr-4": { "Heise\\Tests\\Shariff\\": "tests" }
-    },
-    "scripts": {
-        "post-install-cmd": [
-            "[ -d \"cleaner\" ] && php cleaner/bin/composer-cleaner || composer create-project dg/composer-cleaner cleaner v0.2 && php cleaner/bin/composer-cleaner"
-        ],
-        "post-update-cmd": [
-            "[ -d \"cleaner\" ] && php cleaner/bin/composer-cleaner || composer create-project dg/composer-cleaner cleaner v0.2 && php cleaner/bin/composer-cleaner"
-        ]
     }
 }
