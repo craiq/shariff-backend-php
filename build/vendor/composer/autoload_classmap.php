@@ -121,6 +121,7 @@ return array(
     'Heise\\Shariff\\Backend\\AddThis' => $baseDir . '/src/Backend/AddThis.php',
     'Heise\\Shariff\\Backend\\BackendManager' => $baseDir . '/src/Backend/BackendManager.php',
     'Heise\\Shariff\\Backend\\Facebook' => $baseDir . '/src/Backend/Facebook.php',
+    'Heise\\Shariff\\Backend\\Facebooklike' => $baseDir . '/src/Backend/Facebooklike.php',
     'Heise\\Shariff\\Backend\\Flattr' => $baseDir . '/src/Backend/Flattr.php',
     'Heise\\Shariff\\Backend\\GooglePlus' => $baseDir . '/src/Backend/GooglePlus.php',
     'Heise\\Shariff\\Backend\\LinkedIn' => $baseDir . '/src/Backend/LinkedIn.php',
